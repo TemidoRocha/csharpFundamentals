@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
-  class Book
+  public class Book
   {
     // implicit constructor
     // same name as the class
@@ -21,21 +21,20 @@ namespace GradeBook
       grades.Add(grade);
     }
 
-    public void ShowStatistics()
+    public Statistics GetStatistics()
     {
-      var result = 0.0;
-      var highGrade = double.MinValue;
-      var lowGrade = double.MaxValue;
-      foreach (double number in grades)
+      var result = new Statistics();
+      result.Average= 0.0;
+      result.High = double.MinValue;
+      result.Low = double.MaxValue;
+      foreach (var grade in grades)
       {
-          highGrade = Math.Max(number, highGrade);
-          lowGrade = Math.Min(number, lowGrade);
-          result += number;
+          result.High = Math.Max(grade, result.High);
+          result.Low = Math.Min(grade, result.Low);
+          result.Average += grade;
       }
-      result /= grades.Count;
-      Console.WriteLine($"The highest grade is {highGrade}");
-      Console.WriteLine($"The lowest grade is {lowGrade}");
-      Console.WriteLine($"The average grade is {result}");
+      result.Average /= grades.Count;
+      return result;
     }
     // when you have a field we can not use implicit typing (we cannot use var)
     // one way to instatiate
