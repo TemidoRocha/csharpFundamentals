@@ -13,7 +13,7 @@ namespace GradeBook
       grades = new List<double>();
       // since e can not use name = name, we can use this as example bellow
       // this is to use implicitly a member of the class
-      this.name = name;
+      Name = name;
       numberOfBooks += 1;
     }
     public void AddGrade(double grade)
@@ -42,7 +42,7 @@ namespace GradeBook
     // second way is to use the construcor
     // when we don't use a modifier it is private as default
     private List<double> grades;
-    private string name;
+    public string Name;
     static int numberOfBooks = 0;
   }
 }
