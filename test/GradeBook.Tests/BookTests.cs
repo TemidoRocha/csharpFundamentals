@@ -26,7 +26,7 @@ namespace GradeBook.Tests
         // act
         
         // assert
-        Assert.Equal(42, x);
+        Assert.Equal(3, x);
       
       }
 
